@@ -22,7 +22,7 @@ const projectRootDir = path.resolve(__dirname);
 
 export default [
   {
-    input: 'src/index.js',
+    input: 'src/kata2/index.js',
     output: {
       file: './output.js',
       name: 'output',

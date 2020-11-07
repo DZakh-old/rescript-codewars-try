@@ -8,6 +8,9 @@ function triangular(n) {
     return n + triangular(n - 1 | 0) | 0;
   }
 }
-/* No side effect */
 
-console.log(triangular(3));
+export {
+  triangular ,
+  
+}
+/* No side effect */
