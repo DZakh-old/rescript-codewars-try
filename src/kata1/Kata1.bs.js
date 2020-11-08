@@ -6,16 +6,22 @@ function fmod(divident, divisor) {
   return divident - divisor * Math.floor(divident / divisor);
 }
 
-function listSum(list) {
-  if (list) {
-    return list.hd + listSum(list.tl);
-  } else {
-    return 0;
-  }
+function listSum(_resultOpt, _list) {
+  while(true) {
+    var resultOpt = _resultOpt;
+    var list = _list;
+    var result = resultOpt !== undefined ? resultOpt : 0;
+    if (!list) {
+      return result;
+    }
+    _list = list.tl;
+    _resultOpt = result + list.hd;
+    continue ;
+  };
 }
 
 function oddOrEvenFloatArray(array) {
-  var arraySum = listSum(Belt_List.fromArray(array));
+  var arraySum = listSum(undefined, Belt_List.fromArray(array));
   var arraySumRemainder = fmod(arraySum, 2);
   return arraySumRemainder === 0;
 }

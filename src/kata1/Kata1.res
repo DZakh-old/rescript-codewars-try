@@ -5,10 +5,10 @@ module Arithmetic = {
     divident -. divisor *. Js.Math.floor_float(divident /. divisor)
   }
 
-  let rec listSum = list =>
+  let rec listSum = (~result=0., list) =>
     switch list {
-    | list{} => 0.
-    | list{a, ...rest} => a +. listSum(rest)
+    | list{} => result
+    | list{a, ...rest} => listSum(rest, ~result=result +. a)
     }
 }
 
